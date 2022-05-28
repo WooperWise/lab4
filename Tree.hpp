@@ -170,6 +170,15 @@ public:
         DestroyNode(root);
     }
 
+    bool operator==(BinaryNode<T> &tree){
+        bool flag = this->Equals(this->GetPtrRoot(), tree.GetPtrRoot());
+        if (flag) {
+            return true;
+        }
+        return false;
+    }
+
+
 private:
 
     void DestroyNode (Node* root) {
@@ -233,6 +242,14 @@ private:
         cout << (*tree)->data << "  ";
         if((*tree)->left) RRoL(&(*tree)->left);
     }
+
+    bool Equals(Node **node1, Node **node2){
+        if ((*node1) == (*node2)){
+            return true;
+        }
+        return (((*node1)->data == (*node2)->data) && Equals(&(*node1)->left, &(*node2)->left) && Equals(&(*node1)->right, &(*node2)->right));
+    }
+
     
 };
 
@@ -377,6 +394,14 @@ public:
         DestroyNode(root);
     }
 
+    bool operator==(BinaryStringNode &tree){
+        bool flag = this->Equals(this->GetPtrRoot(), tree.GetPtrRoot());
+        if (flag) {
+            return true;
+        }
+        return false;
+    }
+
 private:
 
     void DestroyNode (Node* root) {
@@ -453,6 +478,13 @@ private:
     a[15] = '\0';
     return a;
     }
+
+    bool Equals(Node **node1, Node **node2){
+        if ((*node1) == (*node2)){
+            return true;
+        }
+        return (((*node1)->data == (*node2)->data) && Equals(&(*node1)->left, &(*node2)->left) && Equals(&(*node1)->right, &(*node2)->right));
+    }
     
 };
 
@@ -513,9 +545,8 @@ public:
         if((*tree)){
             if(item < ((*tree)->data)) {return FindItem(item, &(*tree)->left);}
             else {
-                if(item > (*tree)->data) {
-                    return FindItem(item, &(*tree)->right);
-                } else if(item == (*tree)->data) return true;
+                if(item > (*tree)->data) {return FindItem(item, &(*tree)->right);} 
+                else if(item == (*tree)->data) return true;
             }
         }
         return false;
@@ -597,6 +628,14 @@ public:
         DestroyNode(root);
     }
 
+    bool operator==(BinaryPersonNode &tree){
+        bool flag = this->Equals(this->GetPtrRoot(), tree.GetPtrRoot());
+        if (flag) {
+            return true;
+        }
+        return false;
+    }
+
 private:
 
     void DestroyNode (Node* root) {
@@ -659,6 +698,13 @@ private:
         if((*tree)->right) RRoL(&(*tree)->right);
         (*tree)->data.Print(); cout << "  ";
         if((*tree)->left) RRoL(&(*tree)->left);
+    }
+
+    bool Equals(Node **node1, Node **node2){
+        if ((*node1) == (*node2)){
+            return true;
+        }
+        return (((*node1)->data == (*node2)->data) && Equals(&(*node1)->left, &(*node2)->left) && Equals(&(*node1)->right, &(*node2)->right));
     }
     
 };
@@ -807,6 +853,14 @@ public:
         DestroyNode(root);
     }
 
+    bool operator==(BinaryComplexNode<T> &tree){
+        bool flag = this->Equals(this->GetPtrRoot(), tree.GetPtrRoot());
+        if (flag) {
+            return true;
+        }
+        return false;
+    }
+
 private:
 
     void DestroyNode (Node* root) {
@@ -869,6 +923,13 @@ private:
         if((*tree)->right) RRoL(&(*tree)->right);
         (*tree)->data.Print(); cout << "  ";
         if((*tree)->left) RRoL(&(*tree)->left);
+    }
+
+    bool Equals(Node **node1, Node **node2){
+        if ((*node1) == (*node2)){
+            return true;
+        }
+        return (((*node1)->data == (*node2)->data) && Equals(&(*node1)->left, &(*node2)->left) && Equals(&(*node1)->right, &(*node2)->right));
     }
     
 };

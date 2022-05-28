@@ -15,10 +15,10 @@ private:
 
 public:
 
-    Person (string name, string surname, size_t age) {
-        name = name;
-        surname = surname;
-        age = age;
+    Person (string n_name, string n_surname, size_t n_age) {
+        name = n_name;
+        surname = n_surname;
+        age = n_age;
     }
 
     Person () {
